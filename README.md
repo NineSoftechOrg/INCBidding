@@ -1,10 +1,10 @@
 # Bidding Management Solution
 
-#Install Node Modules in /angular
+#Install Node Modules in **/angular** Directory
 - cd angular
 - npm install
 
-#Install Node Modules in /server Directory
+#Install Node Modules in **/server** Directory
 - cd ..
 - cd server
 - npm install
