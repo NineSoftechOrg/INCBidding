@@ -4,7 +4,7 @@
 - cd angular
 - npm install
 
-#Install Node Modules in /Server Directory
+#Install Node Modules in /server Directory
 - cd ..
 - cd server
 - npm install
