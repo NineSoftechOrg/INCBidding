@@ -4,6 +4,8 @@ import { Vendor } from './vendors/entities/vendor.entity';
 import { VendorsModule } from './vendors/vendors.module';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/entities/item.entity'; 
+import { BiddingsModule } from './biddings/biddings.module';
+import { Bidding } from './biddings/entities/bidding.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -13,11 +15,11 @@ import { Item } from './items/entities/item.entity';
       username: 'postgres', // Your PostgreSQL username
       password: 'postgres', // Your PostgreSQL password
       database: 'bidding_db', // Database name
-      entities: [Vendor,Item],
+      entities: [Vendor,Item,Bidding],
       synchronize: true, // Automatically sync the database schema (for development only)
     }),
     TypeOrmModule.forFeature([Vendor]), // Make sure Vendor is included here
-    VendorsModule, ItemsModule,
+    VendorsModule, ItemsModule, BiddingsModule,
   
   ],
 })
