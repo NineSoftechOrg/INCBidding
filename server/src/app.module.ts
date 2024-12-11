@@ -22,7 +22,7 @@ import { Vendor} from './vendors/entities/vendor.entity';
       password: 'postgres', 
       database: 'bidding_db', 
       entities:[Bid,BidReceived,Item,User,Log,Vendor],
-      synchronize: true, // Automatically sync the database schema
+      synchronize: true,
     }),
     TypeOrmModule.forFeature([]),
     UsersModule,
@@ -30,7 +30,7 @@ import { Vendor} from './vendors/entities/vendor.entity';
     BidReceivedModule,
     VendorsModule,
     ItemsModule,
-    LogsModule, // Make sure Vendor is included here
+    LogsModule, 
 
   
   ],
