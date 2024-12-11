@@ -1,25 +1,37 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Vendor } from './vendors/entities/vendor.entity'; 
+import { UsersModule } from './users/users.module';
+import { BidModule } from './bid/bid.module';
+import { BidReceivedModule } from './bid_received/bid_received.module';
 import { VendorsModule } from './vendors/vendors.module';
 import { ItemsModule } from './items/items.module';
-import { Item } from './items/entities/item.entity'; 
-import { BiddingsModule } from './biddings/biddings.module';
-import { Bidding } from './biddings/entities/bidding.entity';
+import { LogsModule } from './logs/logs.module';
+import { Bid } from './bid/entities/bid.entity';
+import { BidReceived } from './bid_received/entities/bid_received.entity';
+import { Item } from './items/entities/item.entity';
+import { User } from './users/entities/user.entity';
+import { Log} from './logs/entities/log.entity';
+import { Vendor} from './vendors/entities/vendor.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost', // Database host
-      port: 5432, // Default PostgreSQL port
-      username: 'postgres', // Your PostgreSQL username
-      password: 'postgres', // Your PostgreSQL password
-      database: 'bidding_db', // Database name
-      entities: [Vendor,Item,Bidding],
-      synchronize: true, // Automatically sync the database schema (for development only)
+      host: 'localhost', 
+      port: 5432,
+      username: 'postgres', 
+      password: 'postgres', 
+      database: 'bidding_db', 
+      entities:[Bid,BidReceived,Item,User,Log,Vendor],
+      synchronize: true, // Automatically sync the database schema
     }),
-    TypeOrmModule.forFeature([Vendor]), // Make sure Vendor is included here
-    VendorsModule, ItemsModule, BiddingsModule,
+    TypeOrmModule.forFeature([]),
+    UsersModule,
+    BidModule,
+    BidReceivedModule,
+    VendorsModule,
+    ItemsModule,
+    LogsModule, // Make sure Vendor is included here
+
   
   ],
 })

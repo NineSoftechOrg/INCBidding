@@ -1,43 +1,43 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany  } from 'typeorm';
-import { Item } from '../../items/entities/item.entity'; // Import Item entity
-@Entity('vendors') // Table name in the database
-export class Vendor {
-  @PrimaryGeneratedColumn()
-  vendor_id: number;
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
-  @Column({ type: 'varchar', length: 20, unique: true })
+@Entity('vendors')
+export class Vendor {
+  @PrimaryColumn({ length: 20 })
   vendor_code: string;
 
-  @Column({ type: 'varchar', length: 100 })
+  @Column({ length: 100 })
   vendor_name: string;
 
-  @Column({ type: 'varchar', length: 20, nullable: true })
-  phone_number: string;
+  @Column({ length: 20 })
+  contact1: string;
 
-  @Column({ type: 'varchar', length: 100, nullable: true })
+  @Column({ length: 20, nullable: true })
+  contact2: string;
+
+  @Column({ length: 100 })
   email_id: string;
 
-  @Column({ type: 'text', nullable: true })
-  address: string;
-
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ length: 50 })
   vendor_type: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ type: 'text' })
+  address: string;
+
+  @Column({ length: 50 })
   country: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ length: 50 })
   state: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ length: 50 })
   city: string;
 
-  @Column({ type: 'varchar', length: 10, nullable: true })
+  @Column({ length: 10 })
   pincode: string;
 
-  @Column({ type: 'bytea', nullable: true })
-  kyc_document: Buffer;
-   // Add the reverse relationship with Item entity
-   @OneToMany(() => Item, (item) => item.vendor)
-   items: Item[];
+  @Column({ type: 'simple-array' })
+  kyc_documents: string[];
+
+  @Column({ type: 'simple-array' })
+  bids_placed: string[];
 }

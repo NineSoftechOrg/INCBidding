@@ -1,40 +1,34 @@
-// src/items/entities/item.entity.ts
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Vendor } from '../../vendors/entities/vendor.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('items')
 export class Item {
   @PrimaryGeneratedColumn()
   item_id: number;
 
-  @Column({ type: 'varchar', length: 20, unique: true })
+  @Column({ length: 20, unique: true })
   item_number: string;
 
-  @Column({ type: 'text', nullable: true })
+  @Column({ type: 'text' })
   description1: string;
 
   @Column({ type: 'text', nullable: true })
   description2: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ length: 50 })
   part_number: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ length: 50 })
   item_category: string;
 
-  @Column({ type: 'int', nullable: true })
+  @Column()
   last_quantity_quoted: number;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true })
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
   last_price_quoted: number;
 
-  @Column({ type: 'varchar', length: 20, nullable: true })
+  @Column({ length: 20 })
   unit_of_measurement: string;
 
-  @ManyToOne(() => Vendor, (vendor) => vendor.items)
-  @JoinColumn({ name: 'vendor_code', referencedColumnName: 'vendor_code' })
-  vendor: Vendor;
-
-  @Column({ type: 'bytea', nullable: true })
-  item_image: Buffer;
+  @Column({ type: 'simple-array' })
+  item_images: string[];
 }
