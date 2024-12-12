@@ -1,17 +1,20 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
-import { BidModule } from './bid/bid.module';
-import { BidReceivedModule } from './bid_received/bid_received.module';
-import { VendorsModule } from './vendors/vendors.module';
-import { ItemsModule } from './items/items.module';
-import { LogsModule } from './logs/logs.module';
-import { Bid } from './bid/entities/bid.entity';
-import { BidReceived } from './bid_received/entities/bid_received.entity';
-import { Item } from './items/entities/item.entity';
-import { User } from './users/entities/user.entity';
-import { Log} from './logs/entities/log.entity';
-import { Vendor} from './vendors/entities/vendor.entity';
+import { UsersModule } from './modules/users/users.module';
+
+import { BidModule } from './modules/bid/bid.module';
+import { BidReceivedModule } from './modules/bid_received/bid_received.module';
+import { VendorsModule } from './modules/vendors/vendors.module';
+import { ItemsModule } from './modules/items/items.module';
+// import { LogsModule } from './logs/logs.module';
+
+import { Bid } from './modules/bid/entities/bid.entity';
+import { BidReceived } from './modules/bid_received/entities/bid_received.entity';
+import { Item } from './modules/items/entities/item.entity';
+import { User } from './modules/users/entities/user.entity';
+// import { Log} from './logs/entities/log.entity';
+import { Vendor} from './modules/vendors/entities/vendor.entity';
+// import { BidController } from './modules/bid/bid.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -19,9 +22,9 @@ import { Vendor} from './vendors/entities/vendor.entity';
       host: 'localhost', 
       port: 5432,
       username: 'postgres', 
-      password: 'postgres', 
+      password: '6775', 
       database: 'bidding_db', 
-      entities:[Bid,BidReceived,Item,User,Log,Vendor],
+      entities:[Bid,BidReceived,Item,User,Vendor],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([]),
@@ -30,9 +33,10 @@ import { Vendor} from './vendors/entities/vendor.entity';
     BidReceivedModule,
     VendorsModule,
     ItemsModule,
-    LogsModule, 
+    // LogsModule, 
 
   
   ],
+  controllers: [],
 })
 export class AppModule {}
