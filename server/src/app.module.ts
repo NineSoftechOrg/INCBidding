@@ -15,6 +15,7 @@ import { User } from './modules/users/entities/user.entity';
 // import { Log} from './logs/entities/log.entity';
 import { Vendor} from './modules/vendors/entities/vendor.entity';
 // import { BidController } from './modules/bid/bid.controller';
+import { VendorsController } from './modules/vendors/vendors.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({

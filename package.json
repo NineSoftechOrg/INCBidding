@@ -5,7 +5,7 @@
     "concurrently": "^9.1.0"
   },
   "scripts": {
-    "start:client": "cd angular && npm start",
+    "start:client": "cd angular && npm star t",
     "start:server": "cd server && npm run start",
     "start": "concurrently \"npm run start:client\" \"npm run start:server\""
   },
