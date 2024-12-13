@@ -10,7 +10,7 @@ import { Bid } from './bid/entities/bid.entity';
 import { BidReceived } from './bid_received/entities/bid_received.entity';
 import { Item } from './items/entities/item.entity';
 import { User } from './users/entities/user.entity';
-import { Log} from './logs/entities/log.entity';
+import { Logs} from './logs/entities/log.entity';
 import { Vendor} from './vendors/entities/vendor.entity';
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { Vendor} from './vendors/entities/vendor.entity';
       username: 'postgres', 
       password: 'postgres', 
       database: 'bidding_db', 
-      entities:[Bid,BidReceived,Item,User,Log,Vendor],
+      entities:[Bid,BidReceived,Item,User,Logs,Vendor],
       synchronize: true, // Automatically sync the database schema
     }),
     TypeOrmModule.forFeature([]),
@@ -30,7 +30,7 @@ import { Vendor} from './vendors/entities/vendor.entity';
     BidReceivedModule,
     VendorsModule,
     ItemsModule,
-    LogsModule, // Make sure Vendor is included here
+    LogsModule, 
 
   
   ],
