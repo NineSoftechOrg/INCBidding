@@ -16,8 +16,7 @@ import { User } from './modules/users/entities/user.entity';
 import { Vendor} from './modules/vendors/entities/vendor.entity';
 // import { BidController } from './modules/bid/bid.controller';
 import { VendorsController } from './modules/vendors/vendors.controller';
-import { UsersService } from './users/users.service';
-import { UsersController } from './users/users.controller';
+import { UsersController } from './modules/users/users.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -40,7 +39,7 @@ import { UsersController } from './users/users.controller';
 
   
   ],
-  controllers: [UsersController],
-  providers: [UsersService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
