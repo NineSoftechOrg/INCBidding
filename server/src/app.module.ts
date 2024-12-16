@@ -6,17 +6,17 @@ import { BidModule } from './modules/bid/bid.module';
 import { BidReceivedModule } from './modules/bid_received/bid_received.module';
 import { VendorsModule } from './modules/vendors/vendors.module';
 import { ItemsModule } from './modules/items/items.module';
-// import { LogsModule } from './logs/logs.module';
+
 
 import { Bid } from './modules/bid/entities/bid.entity';
 import { BidReceived } from './modules/bid_received/entities/bid_received.entity';
 import { Item } from './modules/items/entities/item.entity';
 import { User } from './modules/users/entities/user.entity';
-// import { Log} from './logs/entities/log.entity';
+
 import { Vendor} from './modules/vendors/entities/vendor.entity';
-// import { BidController } from './modules/bid/bid.controller';
-import { VendorsController } from './modules/vendors/vendors.controller';
-import { UsersController } from './modules/users/users.controller';
+
+
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -35,11 +35,12 @@ import { UsersController } from './modules/users/users.controller';
     BidReceivedModule,
     VendorsModule,
     ItemsModule,
-    // LogsModule, 
+  
 
   
   ],
-  controllers: [],
-  providers: [],
+  
+  
+ 
 })
 export class AppModule {}
