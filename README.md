@@ -1,20 +1,11 @@
 # Bidding Management Solution
 
-#Install Node Modules in **/angular** Directory
-- cd angular
-- npm install
-
-#Install Node Modules in **/server** Directory
+#Install Node Modules in Root Directory for both projects
 - cd ..
-- cd server
-- npm install
-
-#Install Node Modules in Root Directory
-- cd ..
-- npm install
+- yarn install
 
 #Run the Project
-- npm start
+- yarn start
 
 #URLs
 - **Frontend:** localhost:4200
