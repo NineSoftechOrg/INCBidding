@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, Patch } from '@nestjs/common';
 import { BidReceivedService } from './bid_received.service';
 import { BidReceived } from './entities/bid_received.entity';
 
@@ -21,7 +21,7 @@ export class BidReceivedController {
     return this.bidReceivedService.create(bidReceived);
   }
 
-  @Put(':id')
+  @Patch(':id')
   update(@Param('id') id: string, @Body() bidReceived: Partial<BidReceived>) {
     return this.bidReceivedService.update(id, bidReceived);
   }
